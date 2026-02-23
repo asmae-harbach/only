@@ -48,7 +48,7 @@ const Form = () => {
 
 
         try{
-            await axios.post("http://localhost:3000/products/add-product", formData)
+            await axios.post(`${import.meta.env.VITE_API_URL}/products/add-product`, formData)
             alert("Produit Ajoutée !")
             setData({name : "", price : "", rating:"", category : "",  image : "",  desc : ""})
             if (fileInputRef.current) {

@@ -15,7 +15,7 @@ const MenuPage = () => {
 
   useEffect(() => {
     const fetch = async()=>{
-      const response = await axios.get('http://localhost:3000/products')
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/products`)
       setAllProducts(response.data);
       setProductsList(response.data);
     }

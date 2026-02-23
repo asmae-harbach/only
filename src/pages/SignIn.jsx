@@ -25,7 +25,7 @@ const SignIn = () => {
             if(data.username === "" || data.password === ""){
                 alert('Tous les cases sont requis')
             }else{
-                const response = await axios.post(`http://localhost:3000/signin`, data)
+                const response = await axios.post(`${import.meta.env.VITE_API_URL}/signin`, data)
                 localStorage.setItem("id", response.data.id)
                 localStorage.setItem("token", response.data.token)
                 setData({username:"", password:""})
