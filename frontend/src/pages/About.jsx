@@ -22,9 +22,9 @@ const About = () => {
         </div>
             <Navbar />
         <div className="relative z-20 max-w-3xl">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
+          <h1 className="text-5xl md:text-7xl font-serif italic font-bold mb-4">
             Le Spécialiste <br />
-            <span className="text-red-600">de la french food</span>
+            <span className="text-red-600 font-serif italic">de la french food</span>
           </h1>
           <p className="text-gray-300 text-lg mb-8">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia debitis animi tenetur saepe nesciunt commodi dolore sint asperiores hic necessitatibus.

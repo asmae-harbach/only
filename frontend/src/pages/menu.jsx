@@ -4,6 +4,7 @@ import Navbar from '../components/Nav';
 import Footer from '../components/Footer';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import ProductDetails from '../components/productDetails';
 
 const categories = ["Tous", "Tacos", "Signatures", "Burger", "Pizza"];
 
@@ -12,6 +13,15 @@ const MenuPage = () => {
   const [activeTab, setActiveTab] = useState("Tous");
   const [allProducts, setAllProducts] = useState([]);
   const [productsList, setProductsList] = useState([]);
+  const [loading, setLoading] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  useEffect(() => {
+    if (allProducts && allProducts.length > 0) {
+      setLoading(false)
+    }
+  }, [allProducts])
 
   useEffect(() => {
     const fetch = async()=>{
@@ -68,14 +78,22 @@ const MenuPage = () => {
           </div>
 
         </div>
-
-        {/* Grid */}
+        {loading ? (
+          <div className="flex justify-center items-center h-[300px] w-full">
+              <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-red-500"></div>
+          </div>
+        ):(
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Remplacez par map sur vos données réelles */}
           {productsList.map((product) => (
-            <Card product={product} />
+            <Card setIsOpen={setIsOpen} product={product} setSelectedProduct={setSelectedProduct} />
           ))}
         </div>
+        )}
+        {isOpen && selectedProduct && (
+          <div className="inset-0 w-full h-full bg-black/50 fixed flex items-center justify-center z-200">
+            <ProductDetails isOpen={isOpen} setIsOpen={setIsOpen} product={selectedProduct} />
+          </div>
+        )}
       </main>
 
       {/* Footer */}

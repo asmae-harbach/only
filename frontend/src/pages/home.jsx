@@ -23,7 +23,7 @@ function Home() {
 
         {/* Contenu Hero */}
         <div className="max-w-4xl space-y-6 z-10 mt-20"> 
-          <h1 className="text-white text-5xl md:text-8xl font-bold leading-tight uppercase tracking-tight">
+          <h1 className="text-white text-5xl md:text-8xl font-serif italic font-bold leading-tight uppercase tracking-tight">
             Le Spécialiste <br /> 
             <span className="text-red-600">de la french food</span>
           </h1>
